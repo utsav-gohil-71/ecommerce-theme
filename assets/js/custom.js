@@ -3,6 +3,13 @@ $(window).on("load", function() {
     $("#gi-overlay").fadeOut("slow");
 });
 
+// Add overflow hidden to the body when the page starts loading
+document.body.style.overflow = "hidden";
+// Remove the overflow hidden once the page is fully loaded
+window.addEventListener("load", function() {
+  document.body.style.overflow = "";
+});
+
 /*-------------- CountDown Timer Script For The Launching Soon Page --------------*/
 if (document.body.classList.contains("launching-soon")) {
     // Set the countdown target date (8 days from now)
