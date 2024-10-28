@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Ripples Effect with Timer - Presto Launch</title>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Style Sheet -->
+     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- Use The Body Class -->
+<body class="overflow-x-hidden time-counter">
+
+    <!-- Loader -->
+    <div id="gi-overlay" class="w-full h-full fixed top-0 right-0 left-0 bottom-0 bg-[#fff] z-[99] flex items-center justify-center overflow-hidden">
+        <img src="assets/images/loader.gif" alt="loader/gif" class="max-w-[100px] mx-auto">
+    </div>
+
+    <section class="full-ripples relative p-6 2xl:h-screen flex items-center bg-no-repeat bg-cover bg-[url(https://images.unsplash.com/photo-1706951323951-35afd6bd2f65?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
+        <div class="lg:max-w-[1280px] w-full mx-auto">
+            <div class="text-white relative text-center lg:text-start">
+                <div class="flex flex-col gap-4 items-center mb-10">
+                    <a href="index.html" class="flex items-center justify-center lg:justify-start">
+                        <img src="assets/images/logo-light.png" alt="logo-light/png" class="max-w-[200px]">
+                    </a>
+                    <p class="sm:text-base text-sm font-medium text-center text-white">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        © eCommerce Theme - All Rights Reserved
+                    </p>
+                </div>
+                <div class="lg:max-w-xl mx-auto text-center">
+                    <h2 class="sm:text-4xl text-2xl font-bold capitalize mb-4">We Are Launching Soon...</h2>
+                    <p class="sm:text-base text-sm font-medium text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatum, doloribus quidem error quam architecto beatae.</p>
+                </div>
+                <div class="sm:mb-10 mb-4 sm:mt-10 mt-4 text-white z-30 w-full lg:max-w-xl mx-auto">
+                    <div class="grid sm:grid-cols-4 items-center sm:justify-center gap-4">
+                        <div class="h-32 w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                            <div class="text-center">
+                                <span id="days" class="text-2xl sm:text-3xl font-bold">00</span>
+                                <p class="text-sm font-medium mt-2">Days</p>
+                            </div>
+                        </div>
+                        <div class="h-32 w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                            <div class="text-center">
+                                <span id="hours" class="text-2xl sm:text-3xl font-bold">00</span>
+                                <p class="text-sm font-medium mt-2">Hours</p>
+                            </div>
+                        </div>
+                        <div class="h-32 w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                            <div class="text-center">
+                                <span id="minutes" class="text-2xl sm:text-3xl font-bold">00</span>
+                                <p class="text-sm font-medium mt-2">Minutes</p>
+                            </div>
+                        </div>
+                        <div class="h-32 w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                            <div class="text-center">
+                                <span id="seconds" class="text-2xl sm:text-3xl font-bold">00</span>
+                                <p class="text-sm font-medium mt-2">Seconds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 lg:max-w-xl mx-auto text-center">
+                    <h3 class="sm:text-2xl text-base font-bold text-gray-300">Subscribe Us To Get Notified!</h3>
+                    <div class="backdrop-blur-2xl bg-white/20 rounded-md">
+                        <form class="flex items-center mt-4 sm:flex-row flex-col sm:px-0 px-2 sm:pb-0 pb-2">
+                            <input type="email" name="email" id="email" class="w-full p-4 border-0 focus:outline-none focus:ring-0 text-sm bg-transparent placeholder:text-white" placeholder="Enter Your Email" autocomplete="off">
+                            <button class="py-2 px-6 sm:me-2 sm:w-auto w-full text-white text-sm rounded-md bg-black">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex justify-center text-center">
+                    <div class="relative mt-10">
+                        <h6 class="sm:text-xl text-base text-white mb-4">Follow Us:</h6>
+                        <ul class="flex flex-wrap items-center gap-6 font-maven">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/facebook.svg" alt="icon/svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/instagram.svg" alt="icon/svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/skype.svg" alt="icon/svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/linkedin.svg" alt="icon/svg">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        $('.full-ripples').ripples();
+        $('.full-ripples').ripples('updateSize');
+    </script>
+
+</body>
+
+</html>

@@ -1,17 +1,24 @@
 /*-------------- Site Loader & Popup --------------*/
-$(window).on("load", function() {
-    $("#gi-overlay").fadeOut("slow");
-});
-
-// Add overflow hidden to the body when the page starts loading
-document.body.style.overflow = "hidden";
-// Remove the overflow hidden once the page is fully loaded
-window.addEventListener("load", function() {
-  document.body.style.overflow = "";
+$(window).on("load", function () {
+    // Set a minimum delay of 1 seconds (3000ms)
+    var minLoadTime = 1000;
+    // Capture the time when the page starts loading
+    var startTime = performance.now();
+    // Check the current time after the page has loaded
+    var loadTime = performance.now() - startTime;
+    // Calculate the remaining time to complete the 3-second minimum delay
+    var remainingTime = Math.max(0, minLoadTime - loadTime);
+    // Add overflow hidden to body when the loader is visible
+    $("body").css("overflow", "hidden");
+    setTimeout(function () {
+        $("#gi-overlay").fadeOut("slow", function () {
+            $("body").css("overflow", "");
+        });
+    }, remainingTime);
 });
 
 /*-------------- CountDown Timer Script For The Launching Soon Page --------------*/
-if (document.body.classList.contains("launching-soon")) {
+if (document.body.classList.contains("time-counter")) {
     // Set the countdown target date (8 days from now)
     const countdownTarget = new Date().getTime() + 8 * 24 * 60 * 60 * 1000;
     // Update the countdown every second
