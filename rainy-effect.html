@@ -11,6 +11,12 @@
      <link rel="stylesheet" href="assets/css/style.css">
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        canvas{
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 </head>
 
 <!-- Use The Body Class -->
@@ -21,8 +27,11 @@
         <img src="assets/images/loader.gif" alt="loader/gif" class="max-w-[100px] mx-auto">
     </div>
 
-    <section class="full-ripples relative p-6 2xl:h-screen flex items-center bg-no-repeat bg-cover bg-[url(https://images.unsplash.com/photo-1706951323951-35afd6bd2f65?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
-        <div class="lg:max-w-[1280px] w-full mx-auto">
+    <section class="relative p-6 2xl:h-screen flex items-center">
+        <div class="absolute w-full h-full left-0 top-0 overflow-hidden">
+            <img src="" id="background" class="w-full h-full object-cover">
+        </div>
+        <div class="lg:max-w-[1280px] w-full mx-auto relative z-10">
             <div class="text-white relative text-center lg:text-start">
                 <div class="flex flex-col gap-4 items-center mb-10">
                     <a href="index.html" class="flex items-center justify-center lg:justify-start">
@@ -36,30 +45,30 @@
                     </p>
                 </div>
                 <div class="lg:max-w-xl mx-auto text-center">
-                    <h2 class="sm:text-4xl text-2xl font-bold capitalize mb-4">We Are Launching Soon...</h2>
-                    <p class="sm:text-base text-sm font-medium text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatum, doloribus quidem error quam architecto beatae.</p>
+                    <h2 class="sm:text-4xl text-2xl font-bold capitalize mb-4 text-white">We Are Launching Soon...</h2>
+                    <p class="sm:text-base text-sm font-medium text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatum, doloribus quidem error quam architecto beatae.</p>
                 </div>
                 <div class="mb-10 mt-10 text-white z-30 w-full lg:max-w-xl mx-auto">
                     <div class="grid grid-cols-4 items-center sm:justify-center gap-4">
-                        <div class="sm:h-32 sm:p-0 p-2 h-full w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                        <div class="w-full flex items-center justify-center">
                             <div class="text-center">
                                 <span id="days" class="text-2xl sm:text-3xl font-bold">00</span>
                                 <p class="text-sm font-medium mt-2">Days</p>
                             </div>
                         </div>
-                        <div class="sm:h-32 sm:p-0 p-2 h-full w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                        <div class="w-full flex items-center justify-center">
                             <div class="text-center">
                                 <span id="hours" class="text-2xl sm:text-3xl font-bold">00</span>
                                 <p class="text-sm font-medium mt-2">Hours</p>
                             </div>
                         </div>
-                        <div class="sm:h-32 sm:p-0 p-2 h-full w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                        <div class="w-full flex items-center justify-center">
                             <div class="text-center">
                                 <span id="minutes" class="text-2xl sm:text-3xl font-bold">00</span>
                                 <p class="text-sm font-medium mt-2">Minutes</p>
                             </div>
                         </div>
-                        <div class="sm:h-32 sm:p-0 p-2 h-full w-full flex items-center justify-center rounded-md backdrop-blur-2xl bg-white/10">
+                        <div class="w-full flex items-center justify-center">
                             <div class="text-center">
                                 <span id="seconds" class="text-2xl sm:text-3xl font-bold">00</span>
                                 <p class="text-sm font-medium mt-2">Seconds</p>
@@ -109,14 +118,28 @@
 
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Ripples Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <!-- Rainy Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
 
     <script>
-        $('.full-ripples').ripples();
-        $('.full-ripples').ripples('updateSize');
+        function rain() {
+          const image = document.getElementById('background');
+          image.onload = function () {
+              var dotEffects  = new RainyDay({
+                  image: this,
+              });
+             dotEffects.rain([
+                  [3, 2, 2]
+              ], 100);
+          };
+      
+          image.crossOrigin = 'anonymous';
+          image.src = 'https://images.unsplash.com/photo-1510851896000-498520af2236?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+      
+      }
+      rain();
     </script>
 
 </body>
